@@ -53,35 +53,36 @@
 
 - Code:
 
-```bash
+```c
 #include <LiquidCrystal.h>
+
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 int Li = 16;
 int Lii = 0;
 int Ri = -1;
 int Rii = -1;
-void setup(){
-lcd.begin(16, 2);
+void setup() {
+  lcd.begin(16, 2);
 }
-void loop(){
-lcd.setCursor(0,0);
-lcd.print(" 19200536 ");
-lcd.setCursor(0, 1);
-lcd.print(Scroll_LCD_Left("FETEL - HCMUS"));
-delay(80);
+void loop() {
+  lcd.setCursor(0, 0);
+  lcd.print(" 19200536 ");
+  lcd.setCursor(0, 1);
+  lcd.print(Scroll_LCD_Left("FETEL - HCMUS"));
+  delay(80);
 }
 
-String Scroll_LCD_Left(String StrDisplay){
-String result;
-String StrProcess = " " + StrDisplay + " ";
-result = StrProcess.substring(Li,Lii);
-Li++;
-Lii++;
-if (Li>StrProcess.length()){
-Li=16;
-Lii=0;
-}
-return result;
+String Scroll_LCD_Left(String StrDisplay) {
+  String result;
+  String StrProcess = " " + StrDisplay + " ";
+  result = StrProcess.substring(Li, Lii);
+  Li++;
+  Lii++;
+  if (Li > StrProcess.length()) {
+    Li = 16;
+    Lii = 0;
+  }
+  return result;
 }
 ```
   
